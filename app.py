@@ -119,23 +119,18 @@ LOCATON = st.sidebar.multiselect("SELECT LOCATION: ",
                                    options = OPTIONS)
 JOB_PROFILE = ["PYTHON DEVELOPER",'GEN AI',
                  'FULL STACK DEVELOPER', 'DATA ANALYST']
- PROFILE = st.sidebar.multiselect("SELECT JOB ROLE",
+PROFILE = st.sidebar.multiselect("SELECT JOB ROLE",
                   options = JOB_PROFILE)
 
 
- job_prompt =f"""Based on {PROFILE} jobs in {LOCATION},
- wan latest job news in using tavily,
- try top 10 search or whatever available
- and give result like naukri theme design with
- job name, job desc, salary, 
- apply link"""
- st.divider()
- response = agent.invoke({'messages' :[{'role':'user','content':job_prompt}]})
+job_prompt =f"""Based on {PROFILE} jobs in {LOCATION},
+wan latest job news in using tavily,
+try top 10 search or whatever available
+and give result like naukri theme design with
+job name, job desc, salary, 
+apply link"""
 
- job_code = response['messages'][-1].content[-1]['text']
- st.html(job_code, width="stretch", unsafe_allow_javascript=True)
-                 
-
+ 
 
 if st.button('generate resume'):
   with st.spinner("runnign agent"):
@@ -153,3 +148,10 @@ if st.button('generate resume'):
 
     
     st.html(code , width="stretch" , unsafe_allow_javascript=True)
+    st.divider()
+    response = agent.invoke({'messages' :[{'role':'user','content':job_prompt}]})
+
+   job_code = response['messages'][-1].content[-1]['text']
+   st.html(job_code, width="stretch", unsafe_allow_javascript=True)
+                 
+
