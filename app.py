@@ -62,7 +62,7 @@ def prompt_generator(agent):
   file_name = 'prompt.py'
   with open(file_name,'w') as f:
     f.write(response.content [-1] ['text'])
-  return "Prompt file generated Successfult, agent can read it"
+  return "Prompt file generated Successfull, agent can read it"
 #resume maker prompt
 prompt_generator(model)
 def resume():
@@ -133,7 +133,7 @@ apply link and give output in HTML and with no markdown"""
  
 
 if st.button('generate resume'):
-  with st.spinner("runnign agent"):
+  with st.spinner("running agent"):
 
     response = agent.invoke({'messages': [{'role':'user','content':query}]})
     print(response['messages'][-1].content)
