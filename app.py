@@ -116,7 +116,7 @@ OPTION = ["DELHI","NOIDA","GURGAON/GURUGRAM",
           'KANPUR', 'LUCKNOW', 'BANGLORE', 'PUNE']
 
 LOCATON = st.sidebar.multiselect("SELECT LOCATION: ",
-                                   options = OPTIONS)
+                                   options = OPTION)
 JOB_PROFILE = ["PYTHON DEVELOPER",'GEN AI',
                  'FULL STACK DEVELOPER', 'DATA ANALYST']
 PROFILE = st.sidebar.multiselect("SELECT JOB ROLE",
